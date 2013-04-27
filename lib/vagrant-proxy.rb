@@ -1,2 +1,2 @@
 require "vagrant-proxy/version"
-require "vagrant-proxy/plugin.rb"
+require "vagrant-proxy/plugin"
