@@ -12,10 +12,11 @@ module VagrantPlugins
       def self.setup_proxying
         @setup_proxying ||= ::Vagrant::Action::Builder.new.tap do |b|
           b.use ConfigValidate
-          b.use Call,  IsRunningOrActive do |env1, b2|
+          b.use Call, IsRunningOrActive do |env1, b2|
             if env1[:result]
               # b2.use SetupProxyOnHost
               b2.use ConfigGuestIpTablesForProxy
+              b2.use SSHRun
             end          
           end
         end
